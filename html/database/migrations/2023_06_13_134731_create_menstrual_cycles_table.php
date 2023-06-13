@@ -1,10 +1,9 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateMenstrualCyclesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +14,10 @@ return new class extends Migration
     {
         Schema::create('menstrual_cycles', function (Blueprint $table) {
             $table->id();
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->unsignedSmallInteger('cycle_length');
+            $table->unsignedSmallInteger('period_length');
             $table->timestamps();
         });
     }
@@ -28,4 +31,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('menstrual_cycles');
     }
-};
+}
